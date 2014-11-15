@@ -27,8 +27,13 @@ gem 'spring', group: :development
 
 # AngularJS in Rails
 gem 'angular-rails-templates'
+# Front-end package manager Bower
 gem 'bower-rails'
+# TB and Autoprefixer
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
 
+# Rails test environment
 group :test do
 	gem 'rspec-rails'
 	gem 'factory_girl_rails'
