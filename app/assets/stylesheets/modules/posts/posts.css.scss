@@ -1,0 +1,27 @@
+.single-post {
+  background: #FFF;
+
+  h1 {
+    font-size: 3em;
+    margin-bottom: 15px;
+	}
+
+	h5 {
+    color: #999999;
+	}
+}
+
+.post-content {
+  color: #444444;
+  padding-top: 10px;
+}
+
+.post-title {
+  margin: 0;
+
+  a { 
+    display: block;
+    color: #18B29D;
+    text-decoration: none;
+	}
+}

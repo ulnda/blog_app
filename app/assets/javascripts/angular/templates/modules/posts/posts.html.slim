@@ -1,7 +1,7 @@
 .row
 	.col-xs-4 ng-repeat="post in posts | orderBy:'-id'"
 		.well
-			h3.postTitle
+			h3.post-title
 				a ui-sref="singlePost({ id:post.id })"
 					| {{ post.title }}
 				h5

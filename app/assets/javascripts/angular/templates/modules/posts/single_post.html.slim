@@ -1,0 +1,9 @@
+.row
+  .col-xs-8.col-xs-offset-2.single-post
+	span.pull-right.cross-btn ng-click="closePost()" &times;  
+	h1 
+		| {{ post.title }}
+	h5 
+		| By: Author name | {{ post.created_at | date:'MM-dd-yyyy' }}
+	.post-content
+		| {{ post.content }}

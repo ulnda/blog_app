@@ -11,4 +11,11 @@ describe 'Posts' do
   	it { expect(response.status).to eq(200) }	
     it { expect(JSON.parse(response.body)[0]['title']).to eq(post.title) }
   end
+
+  describe 'Show' do
+  	before { get api_post_path(post) }
+
+  	it { expect(response.status).to eq(200) }	
+    it { expect(JSON.parse(response.body)['title']).to eq(post.title) }
+  end
 end
