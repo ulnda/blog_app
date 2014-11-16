@@ -1,4 +1,4 @@
-@app = angular.module('app', ['app.posts', 'ui.router', 'templates'])
+@app = angular.module('app', ['app.posts', 'ui.router', 'templates', 'ngResource'])
 
 @app.config(['$httpProvider', ($httpProvider) ->
 	$httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]')
