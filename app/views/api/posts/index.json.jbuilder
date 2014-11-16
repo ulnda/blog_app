@@ -1,1 +1,7 @@
-json.array! @posts, :id, :title, :content, :created_at
+json.array! @posts do |post|
+	json.id			 		post.id
+	json.title	 		post.title
+	json.content 		post.content
+	json.author  		post.user.name
+	json.created_at post.created_at
+end

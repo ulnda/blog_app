@@ -5,5 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+User.delete_all
 Post.delete_all
-12.times { |i| Post.create!(title: "Some title #{i}", content: 'Some content') }
+user = User.create!(name: 'John Smith')
+12.times { |i| user.posts.create!(title: "Some title #{i}", content: 'Some content') }
