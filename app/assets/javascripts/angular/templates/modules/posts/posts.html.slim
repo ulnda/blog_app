@@ -1,0 +1,8 @@
+.row
+	.col-xs-4 ng-repeat="post in posts | orderBy:'-id'"
+		.well
+			h3.postTitle
+				a ui-sref="singlePost({ id:post.id })"
+					| {{ post.title }}
+				h5
+					| By: Author-name | {{ post.created_at | date:'dd-MM-yyyy' }}

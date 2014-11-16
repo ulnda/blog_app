@@ -1,1 +1,1 @@
-json.array! @posts, :title, :content
+json.array! @posts, :id, :title, :content, :created_at
