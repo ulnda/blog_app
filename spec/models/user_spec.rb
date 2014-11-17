@@ -6,6 +6,7 @@ describe User do
   it { expect(user).to respond_to(:name) }
 
   it { expect(user).to respond_to(:posts) }
+  it { expect(user).to respond_to(:comments) }
 
   it { expect(user).to be_valid }
 

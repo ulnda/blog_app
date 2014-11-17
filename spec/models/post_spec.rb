@@ -9,6 +9,8 @@ describe Post do
   it { expect(post).to respond_to(:user) }
   it { expect(post).to respond_to(:user_id) }
 
+  it { expect(post).to respond_to(:comments) }
+
   it { expect(post).to be_valid }
 
   describe 'title validations' do
