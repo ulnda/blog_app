@@ -4,6 +4,6 @@
 	h1 
 		| {{ post.title }}
 	h5 
-		| By: Author name | {{ post.created_at | date:'MM-dd-yyyy' }}
+		| By: {{ post.author }} | {{ post.created_at | date:'MM-dd-yyyy' }}
 	.post-content
 		| {{ post.content }}
