@@ -12,5 +12,5 @@ Comment.delete_all
 user1 = User.create!(name: 'John Smith')
 user2 = User.create!(name: 'Alan Gordon')
 
-12.times { |i| user1.posts.create!(title: "Some title #{i}", content: 'Some content') }
-user1.posts.each { |post| 5.times { user2.comments.create!(content: 'Some comment', post: post) } }
+12.times { |i| user1.posts.create!(title: "Some title #{ i }", content: "Some content #{ i }") }
+user1.posts.each { |post| 5.times { |i| user2.comments.create!(content: "Some comment #{ i }", post: post) } }
