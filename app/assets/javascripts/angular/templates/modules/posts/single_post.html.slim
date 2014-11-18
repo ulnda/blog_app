@@ -1,0 +1,19 @@
+.row
+  .col-xs-8.col-xs-offset-2.single-post
+	span.pull-right.cross-btn ng-click="closePost()" &times;  
+	h1 
+		| {{ post.title }}
+	h5 
+		| By: {{ post.author }} | {{ post.created_at | date:'MM-dd-yyyy' }}
+	.post-content
+		| {{ post.content }}
+	.comments
+	.row
+	  .col-xs-12
+	    h3 Comments
+	    .comments-list
+	      .single-comment ng-repeat="comment in post.comments | orderBy:'-id'"
+	        .content
+	        	| {{ comment.content }}
+	        .info
+	        	| By : <span>{{ comment.author }}</span> | On: <span>{{ comment.created_at | date:'MM-dd-yy' }}</span>
