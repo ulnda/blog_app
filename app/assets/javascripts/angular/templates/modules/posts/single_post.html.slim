@@ -12,7 +12,7 @@
 	  .col-xs-12
 	    h3 Comments
 	    .comments-list
-	      .single-comment ng-repeat="comment in post.comments"
+	      .single-comment ng-repeat="comment in post.comments | orderBy:'-id'"
 	        .content
 	        	| {{ comment.content }}
 	        .info
