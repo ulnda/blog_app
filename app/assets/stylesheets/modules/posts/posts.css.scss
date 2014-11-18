@@ -25,3 +25,22 @@
     text-decoration: none;
 	}
 }
+
+.single-comment{
+  margin-bottom: 20px;
+  padding:20px;
+  border: 1px solid #ccc;
+  border-radius:10px;
+
+  .info{
+    font-size:12px;
+    color:#999;
+  }
+
+  .content{
+      
+    font-size:16px;
+    color:#333;
+    margin-bottom:10px;
+  }
+}

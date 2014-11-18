@@ -7,5 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 User.delete_all
 Post.delete_all
-user = User.create!(name: 'John Smith')
-12.times { |i| user.posts.create!(title: "Some title #{i}", content: 'Some content') }
+Comment.delete_all
+
+user1 = User.create!(name: 'John Smith')
+user2 = User.create!(name: 'Alan Gordon')
+
+12.times { |i| user1.posts.create!(title: "Some title #{i}", content: 'Some content') }
+user1.posts.each { |post| 5.times { user2.comments.create!(content: 'Some comment', post: post) } }
