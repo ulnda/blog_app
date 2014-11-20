@@ -4,6 +4,6 @@ html ng-app='app'
 	  title Blog App
 	  = stylesheet_link_tag    'application', media: 'all'
 	  = csrf_meta_tags
-	body
+	body ng-controller="HomeController"
 		= yield
 		= javascript_include_tag 'application'

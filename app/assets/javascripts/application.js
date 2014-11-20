@@ -17,6 +17,7 @@
 //= require angular-ui-router
 //= require angular-resource
 //= require angular-devise
+//= require angular-cookies
 
 //= require angular/app
 //= require_tree ./angular/templates
