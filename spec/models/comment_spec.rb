@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe Comment do
-  let!(:comment) { create(:comment) }
+  let!(:post)    { create(:post) }
+  let!(:comment) { create(:comment, post: post, user: post.user) }
 
   it { expect(comment).to respond_to(:content) }
 
@@ -35,7 +36,7 @@ describe Comment do
   end
 
   describe 'order scope' do
-    let!(:comment2) { create(:comment) }
+    let!(:comment2) { create(:comment, post: post, user: post.user) }
 
     it('default order') { expect(Comment.all.first).to eq(comment) } 
     it('reverse order') { expect(Comment.all.reverse_order.first).to eq(comment2) }
