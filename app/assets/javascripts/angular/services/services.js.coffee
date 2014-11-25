@@ -4,6 +4,9 @@ angular.module('app.services', []).factory('authService', ['SIGN_IN_ENDPOINT', '
 	auth.signIn = (credentials) ->
 		return $http.post(SIGN_IN_ENDPOINT, { user: credentials }).then (response, status) ->
 			$cookieStore.put('user', response.data)
+	auth.signOut = ->
+		return $http.delete(SIGN_OUT_ENDPOINT).then (response, status) ->
+			$cookieStore.remove('user')
 	auth.currentUser = ->
 		$cookieStore.get('user')
 

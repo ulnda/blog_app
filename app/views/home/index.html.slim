@@ -1,7 +1,8 @@
 .user-header
 	.user_signed ng-show="user"
 		h3
-			| Hello, {{ user.name }}
+			| Hello, {{ user.name }}!
+			a ui-sref="signOut"  [ Sign out ]
 	.user_not_signed ng-hide="user"
 		h3
 			| Please, 
