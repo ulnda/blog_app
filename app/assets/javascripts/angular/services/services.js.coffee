@@ -4,8 +4,6 @@ angular.module('app.services', []).factory('authService', ['SIGN_IN_ENDPOINT', '
 	auth.signIn = (credentials) ->
 		return $http.post(SIGN_IN_ENDPOINT, { user: credentials }).then (response, status) ->
 			$cookieStore.put('user', response.data)
-		, (error) ->
-			console.log("Incorrect email/password")
 	auth.currentUser = ->
 		$cookieStore.get('user')
 
