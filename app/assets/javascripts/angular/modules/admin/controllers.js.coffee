@@ -16,4 +16,10 @@ angular.module('app.admin.controllers', []).controller('SignInController', ['$sc
 		$state.go('signIn')
 	, (error) ->
 		console.log(error)
+]).controller('AdminController', [ ->
+
+]).controller('NewPostController', ['$scope', ($scope) ->
+
+]).controller('PostsController', [ ->
+
 ])

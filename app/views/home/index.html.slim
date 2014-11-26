@@ -2,6 +2,7 @@
 	.user_signed ng-show="user"
 		h3
 			| Hello, {{ user.name }}!
+			a ui-sref="admin.newPost"  [ Account ]
 			a ui-sref="signOut"  [ Sign out ]
 	.user_not_signed ng-hide="user"
 		h3
