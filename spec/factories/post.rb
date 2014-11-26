@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :post do
-    title 'Some title'
+    title 	'Some title'
     content 'Some content'
 
     user

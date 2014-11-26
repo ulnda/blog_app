@@ -4,7 +4,7 @@ require 'spec_helper'
 
 describe 'Posts' do
   let!(:post1) { create(:post) }
-  let!(:post2) { create(:post) }
+  let!(:post2) { create(:post, user: post1.user) }
 
   describe 'Index' do
   	before { get api_posts_path }
