@@ -3,6 +3,10 @@ angular.module('app.admin', ['ui.router', 'app.admin.controllers']).config(['$st
 		url: '/admin/sign_in'
 		templateUrl: 'modules/admin/sign_in.html'
 		controller: 'SignInController'
+		resolve:
+			user: ['authService', '$q', (authService, $q) ->
+								$q.reject({ authorized : true }) if authService.currentUser()
+ 			]
 	).state('signOut'
 		url: '/admin/sign_out'
 		templateUrl: 'modules/admin/sign_out.html'
@@ -10,7 +14,10 @@ angular.module('app.admin', ['ui.router', 'app.admin.controllers']).config(['$st
 	).state('admin'
 		url: '/admin'
 		abstract: true
-		controller: 'AdminController'
+		resolve:
+			user: ['authService', '$q', (authService, $q) ->
+               $q.reject({ unAuthorized : true }) unless authService.currentUser()
+            ]
 		templateUrl: 'modules/admin/home.html'
 	).state('admin.newPost'
 		url: '/posts/new'
