@@ -10,7 +10,7 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		@post = Post.new(post_params)
+		@post = current_user.posts.build(post_params)
 		unless @post.save
 			@errors = [ 'Invalid data' ]
 			render 'shared/errors', status: :bad_request
@@ -18,7 +18,7 @@ class PostsController < ApplicationController
 	end
 
 	def update
-		@post = Post.find(params[:id])
+		@post = current_user.posts.find(params[:id])
 		unless @post.update(post_params)
 			@errors = [ 'Invalid data' ]
 			render 'shared/errors', status: :bad_request
@@ -26,7 +26,7 @@ class PostsController < ApplicationController
 	end
 
 	def destroy
-		@post = Post.find(params[:id])
+		@post = current_user.posts.find(params[:id])
 		@post.destroy
 	end
 

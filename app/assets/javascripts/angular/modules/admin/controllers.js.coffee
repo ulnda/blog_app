@@ -23,7 +23,6 @@ angular.module('app.admin.controllers', []).controller('SignInController', ['$sc
 	$scope.buttonText = 'Save'
 	$scope.createPost = ->
 		$scope.buttonText="Saving...";
-		$scope.post.permalink=angular.lowercase($scope.post.title).replace(/[\s]/g,'-');
 		$scope.post.$save ->
 			$state.go('admin.allPosts')
 ]).controller('AdminPostsController', ['$scope', 'Post', '$state', ($scope, Post, $state)->
