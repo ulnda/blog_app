@@ -7,14 +7,14 @@ describe 'Posts' do
   let!(:post2) { create(:post, user: post1.user) }
 
   describe 'Index' do
-  	before { get api_posts_path }
+  	before { get posts_path }
 
   	it { expect(response.status).to eq(200) }	
     it { expect(JSON.parse(response.body)[0]['title']).to eq(post2.title) }
   end
 
   describe 'Show' do
-  	before { get api_post_path(post1) }
+  	before { get post_path(post1) }
 
   	it { expect(response.status).to eq(200) }	
     it { expect(JSON.parse(response.body)['title']).to eq(post1.title) }
