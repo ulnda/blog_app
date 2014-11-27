@@ -1,0 +1,17 @@
+nav.navbar.navbar-default.navbar-custom.navbar-fixed-top
+  .container-fluid
+    .navbar-header.page-scroll
+      button.navbar-toggle data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button"
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand ui-sref="allPosts" Posts
+    .collapse.navbar-collapse#bs-example-navbar-collapse-1
+      ul.nav.navbar-nav.navbar-right
+        li
+          a ui-sref="signIn" ng-hide="user" Sign In
+        li
+          a ui-sref="admin.newPost" ng-show="user" My Account
+        li
+          a ui-sref="signOut" ng-show="user" Sign Out

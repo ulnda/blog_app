@@ -1,12 +1,2 @@
-.user-header ng-show="header"
-	.user_signed ng-show="user"
-		h3
-			| Hello, {{ user.name }}!
-			a ui-sref="admin.newPost"  [ Account ]
-			a ui-sref="signOut"  [ Sign out ]
-	.user_not_signed ng-hide="user"
-		h3
-			| Please, 
-			a ui-sref="signIn" sign in!
-.ui-view.content
+.ui-view.container
 	| Loading...
