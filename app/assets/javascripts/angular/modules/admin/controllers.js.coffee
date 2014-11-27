@@ -26,6 +26,16 @@ angular.module('app.admin.controllers', []).controller('SignInController', ['$sc
 		$scope.post.permalink=angular.lowercase($scope.post.title).replace(/[\s]/g,'-');
 		$scope.post.$save ->
 			$state.go('admin.allPosts')
-]).controller('AdminPostsController', [ ->
-
+]).controller('AdminPostsController', ['$scope', 'Post', '$state', ($scope, Post, $state)->
+	$scope.posts = Post.query()
+	$scope.deletePost = (post) ->
+		post.$delete ->
+			$state.go('admin.allPosts', undefined, { reload : true })
+]).controller('AdminEditPostController', ['$scope', 'Post', '$state', '$stateParams', ($scope, Post, $state, $stateParams) ->
+	$scope.post = Post.get({ id : $stateParams.id })
+	$scope.buttonText = "Update"
+	$scope.updatePost = ->
+		$scope.buttonText = "Updating..."
+		$scope.post.$update ->
+			$state.go('admin.allPosts');
 ])

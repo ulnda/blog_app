@@ -1,5 +1,5 @@
 angular.module('app.posts.services', []).factory('Post', ['$resource', 'API_ENDPOINT', ($resource, API_ENDPOINT) ->
-    $resource(API_ENDPOINT, { id: '@_id' }, {
+    $resource(API_ENDPOINT, { id: '@id' }, {
         update: {
             method: 'PUT'
         }
