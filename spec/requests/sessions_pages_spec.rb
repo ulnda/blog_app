@@ -9,14 +9,14 @@ describe 'Sessions' do
 
   describe 'Create' do
     context 'with valid data' do
-    	before { post api_user_session_path, user: { email: user.email, password: USER_PASSWORD } }
+    	before { post user_session_path, user: { email: user.email, password: USER_PASSWORD } }
 
     	it { expect(response.status).to eq(200) }	
       it { expect(JSON.parse(response.body)['name']).to eq(user.name) }
     end
 
     context 'with invalid data' do
-      before { post api_user_session_path, user: { email: user.email, password: USER_PASSWORD + '#' } }
+      before { post user_session_path, user: { email: user.email, password: USER_PASSWORD + '#' } }
 
       it { expect(response.status).to eq(401) } 
       it { expect(JSON.parse(response.body)['errors'].size).to eq(1) }

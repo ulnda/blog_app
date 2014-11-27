@@ -2,7 +2,7 @@ angular.module('app.admin.controllers', []).controller('SignInController', ['$sc
 	$scope.buttonText = "Login"
 	
 	$scope.login = ->
-		$scope.buttonText="Logging in. . ."
+		$scope.buttonText="Logging in..."
 		
 		authService.signIn($scope.credentials).then (response, status) ->
 			$rootScope.user = authService.currentUser()
@@ -18,9 +18,14 @@ angular.module('app.admin.controllers', []).controller('SignInController', ['$sc
 		console.log(error)
 ]).controller('AdminController', [ ->
 
-]).controller('AdminNewPostController', ['$scope', ($scope) ->
+]).controller('AdminNewPostController', ['$scope', 'Post', '$state', ($scope, Post, $state) ->
+	$scope.post = new Post()
+	$scope.buttonText = 'Save'
 	$scope.createPost = ->
-		
+		$scope.buttonText="Saving...";
+		$scope.post.permalink=angular.lowercase($scope.post.title).replace(/[\s]/g,'-');
+		$scope.post.$save ->
+			$state.go('admin.allPosts')
 ]).controller('AdminPostsController', [ ->
 
 ])
