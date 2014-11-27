@@ -14,11 +14,11 @@ angular.module('app.admin', ['ui.router', 'app.admin.controllers']).config(['$st
 		templateUrl: 'modules/admin/home.html'
 	).state('admin.newPost'
 		url: '/posts/new'
-		controller: 'NewPostController'
+		controller: 'AdminNewPostController'
 		templateUrl: 'modules/admin/new_post.html'
 	).state('admin.allPosts'
 		url: '/posts'
-		controller: 'PostsController'
+		controller: 'AdminPostsController'
 		templateUrl: 'modules/admin/posts.html'
 	)
 

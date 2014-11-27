@@ -18,8 +18,9 @@ angular.module('app.admin.controllers', []).controller('SignInController', ['$sc
 		console.log(error)
 ]).controller('AdminController', [ ->
 
-]).controller('NewPostController', ['$scope', ($scope) ->
-
-]).controller('PostsController', [ ->
+]).controller('AdminNewPostController', ['$scope', ($scope) ->
+	$scope.createPost = ->
+		
+]).controller('AdminPostsController', [ ->
 
 ])

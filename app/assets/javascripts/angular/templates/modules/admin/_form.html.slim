@@ -1,0 +1,13 @@
+.form-group ng-class="{ 'has-error' : postForm.title.$dirty && postForm.title.$invalid }"
+  label.col-sm-2.control-label for="title" Post Title
+  .col-sm-10
+    input.form-control#title type="text" name="title" ng-model="post.title" ng-required="true" placeholder="Title"
+    span.error-message ng-show="postForm.title.$dirty && postForm.title.$invalid" This field is required
+.form-group ng-class="{ 'has-error' : postForm.content.$dirty && postForm.content.$invalid }"
+  label.col-sm-2.control-label for="content" Content
+  .col-sm-10
+    textarea.form-control#content cols="8" rows="6" name="content" ng-model="post.content" ng-required="true" placeholder="Content"
+    span.error-message ng-show="postForm.content.$dirty && postForm.content.$invalid" This field is required
+.form-group
+  .col-sm-offset-2.col-sm-10
+    button.btn.btn-success type="submit" ng-disabled="postForm.$invalid" Сохранить
