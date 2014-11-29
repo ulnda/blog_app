@@ -1,5 +1,5 @@
 .form-group ng-class="{ 'has-error' : postForm.title.$dirty && postForm.title.$invalid }"
-  label.col-sm-2.control-label for="title" Post Title
+  label.col-sm-2.control-label for="title" Title
   .col-sm-10
     input.form-control#title type="text" name="title" ng-model="post.title" ng-required="true" placeholder="Title"
     span.error-message ng-show="postForm.title.$dirty && postForm.title.$invalid" This field is required
