@@ -6,6 +6,6 @@ angular.module('app.controllers', []).controller('MainController', ['$scope', 'a
 			$state.go('signIn')
 		else if error.authorized
 			$state.go('allPosts')
-]).controller('HomeController', ['$scope', 'authService', '$rootScope', '$state', ($scope, authService, $rootScope, $state) ->
-	
+]).controller('HomeController', ['$scope', 'authService', '$rootScope', '$state', 'User', ($scope, authService, $rootScope, $state, User) ->
+	$scope.users = User.query()
 ])
