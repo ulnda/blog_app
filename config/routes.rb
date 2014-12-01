@@ -7,10 +7,13 @@ Rails.application.routes.draw do
 
   scope defaults: { format: 'json' } do
     devise_for :users, controllers: { sessions: "sessions" }
-    
+
     resources :users do
-      resources :posts
+      get 'current_user/posts', to: 'posts#by_user'
+      resources :posts, only: [:index]
     end
+
+    resources :posts, only: [:create, :update, :destroy, :show]
   end
 
   # Example of regular route:

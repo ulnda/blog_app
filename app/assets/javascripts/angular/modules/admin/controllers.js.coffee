@@ -24,7 +24,7 @@ angular.module('app.admin.controllers', []).controller('SignInController', ['$sc
 		$scope.post.$save ->
 			$state.go('admin.allPosts')
 ]).controller('AdminPostsController', ['$scope', 'Post', '$state', ($scope, Post, $state)->
-	$scope.posts = Post.query()
+	$scope.posts = Post.query({ user_id: 'current_user' })
 	$scope.deletePost = (post) ->
 		post.$delete ->
 			$state.go('admin.allPosts', undefined, { reload : true })
