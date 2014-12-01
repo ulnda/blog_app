@@ -6,7 +6,7 @@ angular.module('app.admin.controllers', []).controller('SignInController', ['$sc
 		
 		authService.signIn($scope.credentials).then (response, status) ->
 			$rootScope.user = authService.currentUser()
-			$state.go('allPosts')
+			$state.go('home')
 		, (error) ->
 			$scope.invalidLogin = true
 			$scope.buttonText = "Login"

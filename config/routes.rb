@@ -6,10 +6,11 @@ Rails.application.routes.draw do
   get '/users/:user_id', to: 'home#index'
 
   scope defaults: { format: 'json' } do
+    devise_for :users, controllers: { sessions: "sessions" }
+    
     resources :users do
       resources :posts
     end
-    devise_for :users, controllers: { sessions: "sessions" }
   end
 
   # Example of regular route:
