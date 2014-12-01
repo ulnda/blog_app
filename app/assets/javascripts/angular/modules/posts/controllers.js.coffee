@@ -1,8 +1,9 @@
-angular.module('app.posts.controllers', []).controller('PostsController', ['$scope', 'Post', ($scope, Post) ->
-    $scope.posts = Post.query()
+angular.module('app.posts.controllers', []).controller('PostsController', ['$scope', 'Post', '$stateParams', '$rootScope', ($scope, Post, $stateParams, $rootScope) ->
+		$scope.posts  = Post.query({ user_id: $stateParams.user_id })
+		$rootScope.userId = $stateParams.user_id
 ]).controller('PostController', ['$stateParams', '$state', '$scope', 'Post', ($stateParams, $state, $scope, Post) ->
     $scope.closePost = ->
-        $state.go('allPosts')
+        $state.go('allPosts', { user_id: $stateParams.user_id })
 
-    $scope.post = Post.get({ id:$stateParams.id })
+    $scope.post = Post.get({ id: $stateParams.id, user_id: $stateParams.user_id })
 ])
