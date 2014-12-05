@@ -18,6 +18,7 @@
 //= require angular-resource
 //= require angular-devise
 //= require angular-cookies
+//= require angular-bootstrap
 
 //= require angular/app
 //= require_tree ./angular/templates
