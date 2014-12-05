@@ -5,7 +5,8 @@ angular.module('app.controllers', []).controller('MainController', ['$scope', 'a
 		if error.unAuthorized
 			$state.go('signIn')
 		else if error.authorized
-			$state.go('allPosts')
+			$state.go('home')
 ]).controller('HomeController', ['$scope', 'authService', '$rootScope', '$state', 'User', ($scope, authService, $rootScope, $state, User) ->
 	$scope.users = User.query()
+	delete $rootScope.userId
 ])

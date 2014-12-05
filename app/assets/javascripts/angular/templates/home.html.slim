@@ -1,1 +1,7 @@
-| Welcome to my blog system!
+.row
+	.col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+		.post-preview ng-repeat="user in users | orderBy:'-id'"
+			a ui-sref="allPosts({ user_id: user.login })"
+				h2.user-name
+					| {{ user.name }}
+			hr

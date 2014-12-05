@@ -12,7 +12,7 @@ angular.module('app.admin.controllers', []).controller('SignInController', ['$sc
 			$scope.buttonText = "Login"
 ]).controller('SignOutController', ['$scope', 'authService', '$state', '$rootScope', ($scope, authService, $state, $rootScope) -> 
 	authService.signOut().then ->
-		$rootScope.user = null
+		delete $rootScope.user
 		$state.go('signIn')
 	, (error) ->
 		console.log(error)
