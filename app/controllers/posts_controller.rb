@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 	end
 
-	def by_user
+	def by_current_user
 		@posts = current_user.posts
 		render 'index'
 	end

@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   scope defaults: { format: 'json' } do
     devise_for :users, controllers: { sessions: "sessions" }
 
+    get 'users/current_user/posts', to: 'posts#by_current_user'
     resources :users do
-      get 'current_user/posts', to: 'posts#by_user'
       resources :posts, only: [:index]
     end
 
