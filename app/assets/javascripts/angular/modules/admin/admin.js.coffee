@@ -9,7 +9,6 @@ angular.module('app.admin', ['ui.router', 'app.admin.controllers']).config(['$st
  			]
 	).state('signOut'
 		url: '/admin/sign_out'
-		templateUrl: 'modules/admin/sign_out.html'
 		controller: 'SignOutController'
 	).state('admin'
 		url: '/admin'
