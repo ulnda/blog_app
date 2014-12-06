@@ -4,8 +4,9 @@ angular.module('app.posts.controllers', []).controller('PostsController', ['$sco
 		$scope.itemsPerPage = 10
 
 		$scope.allPosts = Post.query({ user_id: $stateParams.user_id }, (response) ->
-			$scope.totalItems = $scope.allPosts.length
-			$scope.posts = $scope.allPosts.slice(0, $scope.itemsPerPage)
+      $scope.totalItems = $scope.allPosts.length
+      $scope.posts = $scope.allPosts.slice(0, $scope.itemsPerPage)
+      $scope.countOfPages = $scope.totalItems % $scope.itemsPerPage
 		)
 		
 		$scope.currentPage = 1
