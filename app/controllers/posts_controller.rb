@@ -19,6 +19,8 @@ class PostsController < ApplicationController
 		unless @post.save
 			@errors = [ 'Invalid data' ]
 			render 'shared/errors', status: :bad_request
+		else
+			render nothing: true, status: :ok
 		end
 	end
 
@@ -27,12 +29,14 @@ class PostsController < ApplicationController
 		unless @post.update(post_params)
 			@errors = [ 'Invalid data' ]
 			render 'shared/errors', status: :bad_request
+		else
+			render nothing: true, status: :ok
 		end
 	end
 
 	def destroy
-		@post = current_user.posts.find(params[:id])
-		@post.destroy
+		current_user.posts.find(params[:id]).destroy
+		render nothing: true, status: :ok
 	end
 
 	private
