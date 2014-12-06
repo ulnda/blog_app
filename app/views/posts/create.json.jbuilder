@@ -1,1 +1,1 @@
-json.(@post, :id, :title, :content)
+json.(@post, :id, :title, :content, :created_at)

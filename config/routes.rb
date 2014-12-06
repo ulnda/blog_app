@@ -13,7 +13,9 @@ Rails.application.routes.draw do
       resources :posts, only: [:index]
     end
 
-    resources :posts, only: [:create, :update, :destroy, :show]
+    resources :posts, except: [:index] do
+      resources :comments, only: [:create]
+    end
   end
 
   # Example of regular route:

@@ -8,4 +8,7 @@ angular.module('app.posts.services', []).factory('Post', ['$resource', 'API_POST
      			isArray: true
      		}
     })
-]).value('API_POSTS_ENDPOINT', 'http://localhost:3000/users/:user_id/posts/:id').value('API_POSTS_ACTIONS_ENDPOINT', 'http://localhost:3000/posts/:id')
+]).value('API_POSTS_ENDPOINT', 'http://localhost:3000/users/:user_id/posts/:id').value('API_POSTS_ACTIONS_ENDPOINT', 'http://localhost:3000/posts/:id').
+factory('Comment', ['$resource', 'API_COMMENTS_ENDPOINT', ($resource, API_COMMENTS_ENDPOINT) -> 
+  $resource API_COMMENTS_ENDPOINT, { id: '@id' }
+]).value('API_COMMENTS_ENDPOINT', 'http://localhost:3000/posts/:post_id/comments/:id')

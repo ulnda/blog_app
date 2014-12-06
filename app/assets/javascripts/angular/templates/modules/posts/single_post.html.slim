@@ -12,7 +12,7 @@
 	.row
 		.col-xs-12
 			h3 New Comment
-			form.form-horizontal name="commentForm" role="form"
+			form.form-horizontal name="commentForm" role="form" ng-submit="createComment()"
 				.form-group ng-class="{ 'has-error' : commentForm.content.$dirty && commentForm.content.$invalid }"
 					label.col-sm-2.control-label for="content" Content
 					.col-sm-10
