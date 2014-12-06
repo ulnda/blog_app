@@ -9,7 +9,7 @@
 						| {{ post.title }}
 				p.post-meta
 					| Posted by 
-					a href="#" {{ post.author }}
+					a ui-sref="allPosts({ user_id: post.author_login })" {{ post.author_name }}
 					|  on {{ post.created_at | date:'MMMM dd, yyyy' }}
 				hr
 			.text-center
