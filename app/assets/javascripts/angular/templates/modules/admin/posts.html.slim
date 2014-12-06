@@ -3,8 +3,8 @@
 		h3.text-center View All Posts
 		table.table
 			tr ng-repeat="post in posts | orderBy:'-id'"
-				td 
+				td.col-xs-6
 					| {{ post.title }}
-				td
+				td.col-xs-6
 					a.btn.btn-primary ui-sref="admin.editPost({ id : post.id })" Edit
 					a.btn.btn-danger  ng-click="deletePost(post)" Delete
