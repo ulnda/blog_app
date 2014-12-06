@@ -8,6 +8,20 @@
 	.post-content
 		| {{ post.content }}
 	.comments
+	hr
+	.row
+		.col-xs-12
+			h3 New Comment
+			form.form-horizontal name="commentForm" role="form"
+				.form-group ng-class="{ 'has-error' : commentForm.content.$dirty && commentForm.content.$invalid }"
+					label.col-sm-2.control-label for="content" Content
+					.col-sm-10
+						textarea.form-control#content cols="8" rows="6" name="content" ng-model="comment.content" ng-required="true" placeholder="Content"
+						span.error-message ng-show="commentForm.content.$dirty && commentForm.content.$invalid" This field is required
+				.form-group
+ 					.col-sm-offset-2.col-sm-10
+						button.btn.btn-success type="submit" ng-disabled="commentForm.$invalid" Add
+	hr
 	.row
 	  .col-xs-12
 	    h3 Comments
