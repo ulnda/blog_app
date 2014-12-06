@@ -27,7 +27,7 @@ angular.module('app.admin.controllers', []).controller('SignInController', ['$sc
 	$scope.posts = Post.query({ user_id: 'current_user' })
 	$scope.deletePost = (post) ->
 		post.$delete ->
-			$state.go('admin.allPosts', undefined, { reload : true })
+			$scope.posts.splice($scope.posts.indexOf(post), 1)
 ]).controller('AdminEditPostController', ['$scope', 'Post', '$state', '$stateParams', 'Comment', ($scope, Post, $state, $stateParams, Comment) ->
 	$scope.post = Post.get({ id : $stateParams.id })
 	$scope.buttonText = "Update"
