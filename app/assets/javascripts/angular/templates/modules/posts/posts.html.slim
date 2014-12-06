@@ -1,15 +1,18 @@
 .row
 	.col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
-		.text-center
-			pagination total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"
-		.post-preview ng-repeat="post in posts | orderBy:'-id'"
-			a ui-sref="singlePost({ user_id: userId, id : post.id })"
-				h2.post-title
-					| {{ post.title }}
-			p.post-meta
-				| Posted by 
-				a href="#" {{ post.author }}
-				|  on {{ post.created_at | date:'MMMM dd, yyyy' }}
-			hr
-		.text-center
-			pagination total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"
+		.has-posts ng-show="posts.length"
+			.text-center
+				pagination total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"
+			.post-preview ng-repeat="post in posts | orderBy:'-id'"
+				a ui-sref="singlePost({ user_id: userId, id : post.id })"
+					h2.post-title
+						| {{ post.title }}
+				p.post-meta
+					| Posted by 
+					a href="#" {{ post.author }}
+					|  on {{ post.created_at | date:'MMMM dd, yyyy' }}
+				hr
+			.text-center
+				pagination total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"
+		.without-posts ng-hide="posts.length"
+			h2.text-center Unfortunatelly, this user doesn't have any posts
