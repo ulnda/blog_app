@@ -1,10 +1,13 @@
 .row
 	.col-xs-8
-		h3.text-center View All Posts
-		table.table
-			tr ng-repeat="post in posts | orderBy:'-id'"
-				td.col-xs-6
-					| {{ post.title }}
-				td.col-xs-6
-					a.btn.btn-primary ui-sref="admin.editPost({ id : post.id })" Edit
-					a.btn.btn-danger  ng-click="deletePost(post)" Delete
+		.with-posts ng-show="posts.length"
+			h3.text-center View All Posts
+			table.table
+				tr ng-repeat="post in posts | orderBy:'-id'"
+					td.col-xs-6
+						| {{ post.title }}
+					td.col-xs-6
+						a.btn.btn-primary ui-sref="admin.editPost({ id : post.id })" Edit
+						a.btn.btn-danger  ng-click="deletePost(post)" Delete
+		.without-posts ng-hide="posts.length"
+			h3.text-center There are no posts
