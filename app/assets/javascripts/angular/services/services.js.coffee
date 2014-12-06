@@ -11,4 +11,6 @@ angular.module('app.services', []).factory('authService', ['SIGN_IN_ENDPOINT', '
 		$cookieStore.get('user')
 
 	auth
-]).value('SIGN_IN_ENDPOINT', 'http://localhost:3000/users/sign_in').value('SIGN_OUT_ENDPOINT', 'http://localhost:3000/users/sign_out')
+]).value('SIGN_IN_ENDPOINT', 'http://localhost:3000/users/sign_in').value('SIGN_OUT_ENDPOINT', 'http://localhost:3000/users/sign_out').factory('User', ['$resource', 'USERS_ENDPOINT', ($resource, USERS_ENDPOINT) ->
+    $resource(USERS_ENDPOINT)
+]).value('USERS_ENDPOINT', 'http://localhost:3000/users')

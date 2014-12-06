@@ -2,11 +2,16 @@ class PostsController < ApplicationController
 	before_action :authenticate_user!, except: [ :index, :show ]
 
 	def index
-		@posts = Post.all
+		@posts = User.find_by(login: params[:user_id]).posts
 	end
 
 	def show
 		@post = Post.find(params[:id])
+	end
+
+	def by_current_user
+		@posts = current_user.posts
+		render 'index'
 	end
 
 	def create

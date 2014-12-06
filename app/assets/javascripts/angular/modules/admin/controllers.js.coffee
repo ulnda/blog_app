@@ -6,13 +6,13 @@ angular.module('app.admin.controllers', []).controller('SignInController', ['$sc
 		
 		authService.signIn($scope.credentials).then (response, status) ->
 			$rootScope.user = authService.currentUser()
-			$state.go('allPosts')
+			$state.go('home')
 		, (error) ->
 			$scope.invalidLogin = true
 			$scope.buttonText = "Login"
 ]).controller('SignOutController', ['$scope', 'authService', '$state', '$rootScope', ($scope, authService, $state, $rootScope) -> 
 	authService.signOut().then ->
-		$rootScope.user = null
+		delete $rootScope.user
 		$state.go('signIn')
 	, (error) ->
 		console.log(error)
@@ -24,7 +24,7 @@ angular.module('app.admin.controllers', []).controller('SignInController', ['$sc
 		$scope.post.$save ->
 			$state.go('admin.allPosts')
 ]).controller('AdminPostsController', ['$scope', 'Post', '$state', ($scope, Post, $state)->
-	$scope.posts = Post.query()
+	$scope.posts = Post.query({ user_id: 'current_user' })
 	$scope.deletePost = (post) ->
 		post.$delete ->
 			$state.go('admin.allPosts', undefined, { reload : true })

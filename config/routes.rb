@@ -3,10 +3,17 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   # You can have the root of your site routed with "root"
   root 'home#index'
+  get '/users/:user_id', to: 'home#index'
 
   scope defaults: { format: 'json' } do
-    resources :posts
     devise_for :users, controllers: { sessions: "sessions" }
+
+    get 'users/current_user/posts', to: 'posts#by_current_user'
+    resources :users do
+      resources :posts, only: [:index]
+    end
+
+    resources :posts, only: [:create, :update, :destroy, :show]
   end
 
   # Example of regular route:
