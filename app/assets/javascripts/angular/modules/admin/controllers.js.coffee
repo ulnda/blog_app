@@ -20,7 +20,7 @@ angular.module('app.admin.controllers', []).controller('SignInController', ['$sc
 	$scope.post = new Post()
 	$scope.buttonText = 'Save'
 	$scope.createPost = ->
-		$scope.buttonText="Saving...";
+		$scope.buttonText="Saving..."
 		$scope.post.$save ->
 			$state.go('admin.allPosts')
 ]).controller('AdminPostsController', ['$scope', 'Post', '$state', ($scope, Post, $state)->
@@ -28,11 +28,15 @@ angular.module('app.admin.controllers', []).controller('SignInController', ['$sc
 	$scope.deletePost = (post) ->
 		post.$delete ->
 			$state.go('admin.allPosts', undefined, { reload : true })
-]).controller('AdminEditPostController', ['$scope', 'Post', '$state', '$stateParams', ($scope, Post, $state, $stateParams) ->
+]).controller('AdminEditPostController', ['$scope', 'Post', '$state', '$stateParams', 'Comment', ($scope, Post, $state, $stateParams, Comment) ->
 	$scope.post = Post.get({ id : $stateParams.id })
 	$scope.buttonText = "Update"
 	$scope.updatePost = ->
 		$scope.buttonText = "Updating..."
 		$scope.post.$update ->
-			$state.go('admin.allPosts');
+			$state.go('admin.allPosts')
+
+	$scope.deleteComment = (comment) ->
+		(new Comment({ id: comment.id })).$delete { post_id: $scope.post.id }, ->
+			$scope.post.comments.splice($scope.post.comments.indexOf(comment), 1)
 ])

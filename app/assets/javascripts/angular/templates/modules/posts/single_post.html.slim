@@ -33,5 +33,10 @@
 	      .single-comment ng-repeat="comment in post.comments | orderBy:'-id'"
 	        .content
 	        	| {{ comment.content }}
-	        .info
-	        	| By : <span>{{ comment.author }}</span> | On: <span>{{ comment.created_at | date:'MM-dd-yy' }}</span>
+					.info
+						| By : 
+						span 
+							| {{ comment.author }} 
+						| | On: 
+						span 
+							| {{ comment.created_at | date:'MM-dd-yy' }}

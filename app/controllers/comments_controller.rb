@@ -9,9 +9,8 @@ class CommentsController < ApplicationController
 		end
 	end
 
-	private
-
-		def comment_params
-			params.require(:comment).permit(:content, :post_id)
-		end
+	def destroy
+		current_user.posts.find(params[:post_id]).comments.find(params[:id]).destroy
+		render nothing: true, status: :ok
+	end
 end
