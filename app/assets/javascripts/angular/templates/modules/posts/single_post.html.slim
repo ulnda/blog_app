@@ -11,8 +11,9 @@
 	hr
 	.row
 		.col-xs-12
+			.new-comment
 			h3 New Comment
-			form.form-horizontal name="commentForm" role="form" ng-submit="createComment()"
+			form.form-horizontal name="commentForm" role="form" ng-submit="createComment()" ng-show="user"
 				.form-group ng-class="{ 'has-error' : commentForm.content.$dirty && commentForm.content.$invalid }"
 					label.col-sm-2.control-label for="content" Content
 					.col-sm-10
@@ -21,6 +22,9 @@
 				.form-group
  					.col-sm-offset-2.col-sm-10
 						button.btn.btn-success type="submit" ng-disabled="commentForm.$invalid" Add
+			.sign-in-message ng-hide="user"
+				| To leave a comment please, 
+				a ui-sref="signIn" sign in
 	hr
 	.row
 	  .col-xs-12
