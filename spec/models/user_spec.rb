@@ -22,8 +22,13 @@ describe User do
 
   describe 'associations' do
     describe 'comments association destroy' do
-      it { expect{ user.destroy }.to change(User, :count).by(-1) }
       it { expect{ user.destroy }.to change(Comment, :count).by(-1) }
+    end
+  end
+
+  describe 'associations' do
+    describe 'posts association destroy' do
+      it { expect{ user.destroy }.to change(Post, :count).by(-1) }
     end
   end
 end
