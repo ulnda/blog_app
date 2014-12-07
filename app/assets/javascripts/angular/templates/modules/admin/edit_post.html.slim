@@ -5,18 +5,21 @@
 			div ng-include="'modules/admin/_form.html'"
 .row
 	.col-xs-8
-		h3.text-center Comments
-		.comments-list
-			.single-comment ng-repeat="comment in post.comments | orderBy:'-id'"
-				.content
-					| {{ comment.content }}
-				.info
-					| By : 
-					span 
-						| {{ comment.author }} 
-					| | On: 
-					span 
-						| {{ comment.created_at | date:'MM-dd-yy' }}
-					span
-						|  |
-						a ng-click="deleteComment(comment)"  Delete
+		.with-comments ng-show="post.comments.length"
+			h3.text-center Comments
+			.comments-list
+				.single-comment ng-repeat="comment in post.comments | orderBy:'-id'"
+					.content
+						| {{ comment.content }}
+					.info
+						| By : 
+						span 
+							| {{ comment.author }} 
+						| | On: 
+						span 
+							| {{ comment.created_at | date:'MM-dd-yy' }}
+						span.delete-comment
+							|  | 
+							a ng-click="deleteComment(comment)" Delete
+		.without-comments
+			h3.text-center There are no comments

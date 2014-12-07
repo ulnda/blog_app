@@ -50,3 +50,12 @@
 .cross-btn {
     cursor: pointer;
 }
+
+.delete-comment {
+  a {
+    color: #428bca;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}

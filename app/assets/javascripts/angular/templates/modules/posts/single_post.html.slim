@@ -27,16 +27,19 @@
 				a ui-sref="signIn" sign in
 	hr
 	.row
-	  .col-xs-12
-	    h3 Comments
-	    .comments-list
-	      .single-comment ng-repeat="comment in post.comments | orderBy:'-id'"
-	        .content
-	        	| {{ comment.content }}
-					.info
-						| By : 
-						span 
-							| {{ comment.author }} 
-						| | On: 
-						span 
-							| {{ comment.created_at | date:'MM-dd-yy' }}
+		.col-xs-12
+			.with-comments ng-show="post.comments.length"
+				h3 Comments
+				.comments-list
+					.single-comment ng-repeat="comment in post.comments | orderBy:'-id'"
+						.content
+							| {{ comment.content }}
+						.info
+							| By : 
+							span 
+								| {{ comment.author }} 
+							| | On: 
+							span 
+								| {{ comment.created_at | date:'MM-dd-yy' }}
+			.without-comments ng-hide="post.comments.length"
+				h3 There are no comments
