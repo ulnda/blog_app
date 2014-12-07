@@ -15,7 +15,7 @@ angular.module('app.admin', ['ui.router', 'app.admin.controllers']).config(['$st
 		abstract: true
 		resolve:
 			user: ['authService', '$q', (authService, $q) ->
-               $q.reject({ unAuthorized : true }) unless authService.currentUser()
+                $q.reject({ unAuthorized : true }) unless authService.currentUser()
             ]
 		templateUrl: 'modules/admin/home.html'
 	).state('admin.newPost'
