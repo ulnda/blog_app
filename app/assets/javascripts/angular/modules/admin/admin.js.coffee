@@ -9,14 +9,13 @@ angular.module('app.admin', ['ui.router', 'app.admin.controllers']).config(['$st
  			]
 	).state('signOut'
 		url: '/admin/sign_out'
-		templateUrl: 'modules/admin/sign_out.html'
 		controller: 'SignOutController'
 	).state('admin'
 		url: '/admin'
 		abstract: true
 		resolve:
 			user: ['authService', '$q', (authService, $q) ->
-               $q.reject({ unAuthorized : true }) unless authService.currentUser()
+                $q.reject({ unAuthorized : true }) unless authService.currentUser()
             ]
 		templateUrl: 'modules/admin/home.html'
 	).state('admin.newPost'
