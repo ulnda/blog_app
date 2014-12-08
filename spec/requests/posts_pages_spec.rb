@@ -3,11 +3,12 @@
 require 'spec_helper'
 
 describe 'Posts' do
-  let!(:post1) { create(:post) }
-  let!(:post2) { create(:post, user: post1.user) }
+  let!(:user)  { create(:user) }
+  let!(:post1) { create(:post, user: user) }
+  let!(:post2) { create(:post, user: user) }
 
   describe 'Index' do
-  	before { get posts_path }
+  	before { get user_posts_path(user.login) }
 
   	it { expect(response.status).to eq(200) }	
     it { expect(JSON.parse(response.body)[0]['title']).to eq(post2.title) }
