@@ -44,6 +44,9 @@ group :test, :development do
 	gem 'sqlite3'
 end
 
+# Production database
+gem 'pg'
+
 # Authentication
 gem 'devise'
 
