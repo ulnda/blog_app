@@ -1,0 +1,12 @@
+nav.navbar.navbar-default.navbar-custom.navbar-fixed-top
+  .container-fluid
+    .navbar-header.page-scroll
+      a.navbar-brand ui-sref="home" Users
+    .collapse.navbar-collapse#bs-example-navbar-collapse-1
+      ul.nav.navbar-nav.navbar-right
+        li
+          a ui-sref="signIn" ng-hide="user" Sign In
+        li
+          a ui-sref="admin.newPost" ng-show="user" My Account
+        li
+          a ui-sref="signOut" ng-show="user" Sign Out

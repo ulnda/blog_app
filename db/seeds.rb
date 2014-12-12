@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+User.delete_all
+Post.delete_all
+Comment.delete_all
+
+user1 = User.create!(name: 'John Smith',  login: 'johnsmith',  email: 'test1@example.com', password: '12345678', password_confirmation: '12345678')
+user2 = User.create!(name: 'Alan Gordon', login: 'alangordon', email: 'test2@example.com', password: '12345678', password_confirmation: '12345678')
+
+12.times { |i| user1.posts.create!(title: "Some title #{ i }", content: "Some content #{ i }") }
+user1.posts.each { |post| 5.times { |i| user2.comments.create!(content: "Some comment #{ i }", post: post) } }

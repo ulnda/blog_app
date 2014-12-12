@@ -1,0 +1,8 @@
+.row
+	.col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+		h1.text-center All users signed in the system
+		.post-preview ng-repeat="user in users | orderBy:'-id'"
+			a ui-sref="allPosts({ user_id: user.login })"
+				h3.user-name.text-center
+					| {{ user.name }}
+			hr
