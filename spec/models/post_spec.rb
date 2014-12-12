@@ -39,7 +39,6 @@ describe Post do
 
   describe 'associations' do
     describe 'comments association destroy' do
-      it { expect{ post.destroy }.to change(Post, :count).by(-1) }
       it { expect{ post.destroy }.to change(Comment, :count).by(-1) }
     end    
   end

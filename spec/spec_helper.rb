@@ -3,6 +3,10 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
+
+require 'capybara/rails'
+require 'capybara/rspec'
+
 require 'database_cleaner'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
@@ -37,7 +41,7 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
   config.before(:each) { DatabaseCleaner.start }
-  config.after(:each) { DatabaseCleaner.clean }
+  config.after(:each)  { DatabaseCleaner.clean }
 
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of
@@ -49,4 +53,15 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+  # RSpec devise authentication helper
+  config.include Devise::TestHelpers, type: :controller
+
+  config.include Capybara::DSL, type: :request
+
+  #Capybara.register_driver :chrome do |app|
+  #  Capybara::Selenium::Driver.new(app, :browser => :chrome)
+  #end
+
+  #Capybara.javascript_driver = :chrome
 end
