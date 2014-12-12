@@ -3,6 +3,10 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
+
+require 'capybara/rails'
+require 'capybara/rspec'
+
 require 'database_cleaner'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
@@ -52,4 +56,12 @@ RSpec.configure do |config|
 
   # RSpec devise authentication helper
   config.include Devise::TestHelpers, type: :controller
+
+  config.include Capybara::DSL, type: :request
+
+  #Capybara.register_driver :chrome do |app|
+  #  Capybara::Selenium::Driver.new(app, :browser => :chrome)
+  #end
+
+  #Capybara.javascript_driver = :chrome
 end
