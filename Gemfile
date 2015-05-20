@@ -55,6 +55,9 @@ end
 # Staging database
 gem 'pg'
 
+# Dumping data
+gem 'yaml_db'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
