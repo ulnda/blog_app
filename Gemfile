@@ -52,6 +52,9 @@ group :development do
   gem 'capistrano-rvm'
 end
 
+# Staging database
+gem 'pg'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
