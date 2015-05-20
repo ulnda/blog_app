@@ -20,6 +20,9 @@ test:
   <<: *default
   database: db/test.sqlite3
 
-production:
-  <<: *default
-  database: db/production.sqlite3
+staging:
+  adapter: postgresql
+  database: blog_app
+  host: localhost
+  user: ulnda
+  password: ulnda
